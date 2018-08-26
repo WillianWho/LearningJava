@@ -16,8 +16,8 @@ public class Confronto {
      */
     public static void main(String[] args) {
 //          super(nome, classe, nivel, vida, magia, agilidade, destresa, inteligencia, carisma, forca);
-        Herois h1 = new Herois("Dark Glorisson","Humano",8,100,100,5,10,15,2,10);
-        Monstro m1 = new Monstro("Montaro","Elfo das trevas",7,100,100,5,10,15,10,10);
+        Herois h1 = new Herois("Dark Glorisson","Humano",8,100,100,5,10,15,2,10,true);
+        Monstro m1 = new Monstro("Montaro","Elfo das trevas",7,100,100,5,10,15,10,10,false);
     
     
         System.out.println(h1.toString());

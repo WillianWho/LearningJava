@@ -5,14 +5,36 @@
  */
 package rpg;
 
+import java.util.Random;
+
 /**
  *
  * @author willi
  */
 public class Monstro extends Criatura {
     
-    public Monstro(String nome, String classe, int nivel, int vida, int magia, int agilidade, int destresa, int inteligencia, int carisma, int forca) {
-        super(nome, classe, nivel, vida, magia, agilidade, destresa, inteligencia, carisma, forca);
+    public Monstro(String nome, String classe, int nivel, int vida, int magia, int agilidade, int destresa, int inteligencia, int carisma, int forca, boolean bencao) {
+        super(nome, classe, nivel, vida, magia, agilidade, destresa, inteligencia, carisma, forca, bencao);
     }
+    @Override
+    public float descancar(){
+        
+        Random random = new Random();
+    int controle=0;
+    float r=0;
+        do{
+            random.nextInt(5);
+           float i=1.10f;
+           
+        if(i<1.66){
+        r=i;
+        }
+        i++;
+       
+        }while(controle!=5);
+        int bencao = isBencao()? 10:0;
+        float descanco = (getVida()+ getNivel()+bencao)*r;
+        return descanco;
+}
     
 }

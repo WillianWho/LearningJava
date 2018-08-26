@@ -24,10 +24,11 @@ public class Criatura implements Generica {
     private int inteligencia;
     private int carisma;
     private int forca;
+    private boolean bencao;
 
     // metodos especiais
     //Construtor
-    public Criatura(String nome, String classe, int nivel, int vida, int magia, int agilidade, int destresa, int inteligencia, int carisma, int forca) {
+    public Criatura(String nome, String classe, int nivel, int vida, int magia, int agilidade, int destresa, int inteligencia, int carisma, int forca, boolean bencao) {
         this.setNome(nome);
         this.setClasse(classe);
         this.setNivel(nivel);
@@ -38,6 +39,7 @@ public class Criatura implements Generica {
         this.setInteligencia(inteligencia);
         this.setCarisma(carisma);
         this.setForca(forca);
+        this.setBencao(bencao);
     }
 
     // Metodos 
@@ -51,18 +53,8 @@ public class Criatura implements Generica {
         return random.nextInt(100);
     }
 
-    public int descancar() {
-        int recuperar;
-        Random random = new Random();
-        recuperar = random.nextInt(100);
-
-        if (recuperar > 20) {
-            this.setVida(recuperar);
-            return recuperar;
-        } else {
-            return 0;
-        }
-    }
+    public float descancar(){return 0;
+}
 
     public boolean vivo() {
         return getVida() > 0;
@@ -77,7 +69,9 @@ public class Criatura implements Generica {
         }
     }
     public void revitalizar(){
-        setVida(getVida()+descancar());
+       float descanco = getVida()+descancar();
+        
+        setVida((int)descanco);
     }
 
     //Getters
@@ -120,6 +114,11 @@ public class Criatura implements Generica {
     public int getForca() {
         return forca;
     }
+
+    public boolean isBencao() {
+        return bencao;
+    }
+    
     //Setters 
 
     public final void setNome(String nome) {
@@ -178,6 +177,11 @@ public class Criatura implements Generica {
             this.forca = forca;
         }
     }
+
+    public final void setBencao(boolean bencao) {
+        this.bencao = bencao;
+    }
+    
 
     @Override
     public void call() {
